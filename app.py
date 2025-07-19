@@ -2,10 +2,12 @@ from urllib.parse import quote_plus
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
 from bson.objectid import ObjectId
-
+import os
+from dotenv import load_dotenv
+load_dotenv()
 app = Flask(__name__)
-username = quote_plus("dhanush")
-password = quote_plus("Dhanush@143")
+username = quote_plus(os.getenv("USERNAME"))
+password = quote_plus(os.getenv("PASSWORD"))
 # MongoDB setup
 client = MongoClient(f"mongodb+srv://{username}:{password}@dhanu.yxabe4w.mongodb.net/?retryWrites=true&w=majority&appName=Dhanu")
 db = client["todo_db"]
