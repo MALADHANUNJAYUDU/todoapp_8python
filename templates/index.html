@@ -87,10 +87,15 @@
       font-size: 1.2rem;
       cursor: pointer;
     }
+     .logout {
+            float: right;
+            font-size: 0.9em;
+            flex-wrap: wrap;
+        }
   </style>
 </head>
 <body>
-  <h1>📝 My To-Do List</h1>
+  <h1>📝 My To-Do List</h1> <h2>Welcome, {{ email }} <a href="/logout" class="logout">Logout</a></h2>
   <form action="/add" method="POST">
     <input type="text" name="task" placeholder="New task..." required>
     <button type="submit">Add</button>
