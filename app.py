@@ -65,11 +65,14 @@ def index():
     if 'user_id' not in session:
         return redirect(url_for('login'))
     
+    
+    user_id = session['user_id']
+    user_todos = list(todos.find())
     # Create serializer like Flask does
-    serializer = URLSafeTimedSerializer(app.secret_key)
+    serializer = URLSafeTimedSerializer(os.getenv("SECRET"))
 
     # Your session cookie value (copied from the browser)
-    session_cookie = "paste_the_session_cookie_here"
+    session_cookie =user_id
 
     # Decode
     try:
@@ -77,8 +80,6 @@ def index():
         print("Decoded session data:", data)
     except Exception as e:
         print("Failed to decode:", e)
-    user_id = session['user_id']
-    user_todos = list(todos.find())
     return render_template('index.html', todos=user_todos, email=session['email'])
 
 # Add a task
