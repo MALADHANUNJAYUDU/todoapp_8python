@@ -2,3 +2,5 @@ flask
 pymongo
 gunicorn
 dotenv
+flask_Bcrypt
+itsdangerous
