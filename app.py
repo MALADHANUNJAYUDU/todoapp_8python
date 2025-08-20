@@ -15,7 +15,7 @@ bcrypt = Bcrypt(app)
 username = quote_plus(os.getenv("USERNAME"))
 password = quote_plus(os.getenv("PASSWORD"))
 # MongoDB setup
-client = MongoClient(f"mongodb+srv://kiran:{password}@cluster0.aotevze.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",authSource="admin")
+client = MongoClient(f"mongodb+srv://{username}:{password}@dhanu.yxabe4w.mongodb.net/?retryWrites=true&w=majority&appName=Dhanu",authSource="admin")
 db = client["todo_db"]
 todos = db["todos"]
 users = db["users"]
